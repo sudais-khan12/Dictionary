@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Dictionary</title>
+  </head>
+
+  <body>
+    <div class="slide">
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <audio id="sound" src="sound"></audio>
+    <div class="container">
+      <div class="search-box">
+        <input type="text" placeholder="Type Word...." id="search" />
+        <button class="btn1">
+          <i class="fa-solid fa-magnifying-glass"></i> Search
+        </button>
+      </div>
+      <div class="loader"></div>
+      <p id="error"></p>
+      <div class="result">
+        <div class="word">
+          <h3>sample</h3>
+          <button class="btn2"><i class="fa-solid fa-volume-high"></i></button>
+        </div>
+        <div class="detail">
+          <p1>pos</p1>
+          <p2>/sample/</p2>
+        </div>
+        <div class="meaning">Sorry Try Again</div>
+        <div class="example"></div>
+        <div class="owner">'By Muhammad Sudais'</div>
+      </div>
+    </div>
+    <script src="work.js"></script>
+  </body>
+</html>

@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background-color: #3590f3;
+  transition: 0.2s ease;
+}
+
+.container {
+  padding: 80px 50px;
+  border-radius: 10px;
+  background-color: #d3e3ec;
+  width: 90vmin;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 20px 40px rgba(9, 5, 28, 0.2);
+}
+
+.search-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#search {
+  background-color: transparent;
+  padding: 5px;
+  width: 70%;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #3590f3;
+}
+
+.btn1 {
+  width: 6em;
+  position: relative;
+  height: 3em;
+  border: 3px solid #3590f3;
+  outline: none;
+  background-color: transparent;
+  color: rgb(93, 90, 90);
+  transition: 1s;
+  border-radius: 0.3em;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn1::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #d3e3ec;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+.btn1::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #d3e3ec;
+  transition: 0.5s;
+}
+
+.btn1:hover::before,
+.btn1:hover::after {
+  transform: scale(0);
+}
+
+.btn1:hover {
+  box-shadow: inset 0px 0px 25px #1479ea;
+}
+
+.result {
+  display: none;
+  position: relative;
+}
+
+.result h3 {
+  font-size: 30px;
+  color: #2c2375;
+}
+
+.word {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.btn2 {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #3590f3;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn2:hover {
+  font-size: 20px;
+  color: #14a6ea;
+}
+
+.btn2:active {
+  font-size: 16px;
+}
+
+.detail {
+  display: flex;
+  gap: 10px;
+  color: #9094ca;
+  margin: 5px 0 20px 0;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.meaning {
+  color: #575a7b;
+}
+
+.example {
+  color: #575a7b;
+  font-style: italic;
+  border-left: 5px solid #3590f3;
+  padding-left: 20px;
+  margin-top: 30px;
+}
+
+#error {
+  margin-top: 20px;
+  color: rgb(197, 114, 114);
+  font-size: 14px;
+  display: none;
+}
+
+.loader {
+  display: none;
+  margin-top: 20px;
+  --height-of-loader: 4px;
+  --loader-color: #3590f3;
+  min-width: 79%;
+  height: var(--height-of-loader);
+  border-radius: 30px;
+  background-color: #d3e3ec;
+  position: relative;
+  top: 70%;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  background: var(--loader-color);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 30px;
+  animation: moving 1s ease-in-out infinite;
+}
+
+@keyframes moving {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    left: unset;
+  }
+}
+
+.slide {
+  height: 50px;
+  width: 70px;
+  padding: 10px;
+}
+
+.switch {
+  display: block;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  --size-of-icon: 1.4em;
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d3e3ec;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset, 0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  box-shadow: 0 0 30px rgba(183, 181, 194, 0.603);
+  background-color: #d3e3ec;
+  transition: 1s ease;
+}
+
+input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
+  background: #d3e3ec;
+  box-shadow: inset -3px -2px 5px -2px #675fec, inset -10px -4px 0 0 #66bdf3;
+}
+
+.change {
+  box-shadow: 0 20px 70px rgba(183, 181, 194, 0.603);
+  transition: 1s ease;
+}
+
+.owner {
+  margin-top: 20px;
+  color: #3590f3;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
